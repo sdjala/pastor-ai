@@ -27,6 +27,7 @@ export async function POST(req: Request) {
       model: "gpt-4",
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...messages.map((msg: any) => ({
           role: msg.sender === "user" ? "user" : "assistant",
           content: msg.text || "",
